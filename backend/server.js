@@ -6,12 +6,19 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+
+
+const cors = require("cors");
+
 app.use(cors({
-  origin: ["http://localhost:3000", "https://your-frontend-domain.vercel.app"],
+  origin: [
+    "http://localhost:3000",
+    "https://mern-login-system-osa3.vercel.app", // ✅ Add your Vercel frontend domain
+    "https://mern-login-system.vercel.app"       // (Optional: if another deployment exists)
+  ],
   methods: ["GET", "POST"],
   credentials: true
 }));
-
 
 // Connect to MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI, {
